@@ -43,6 +43,10 @@ a:hover , a:active , a:focus{
         transition: all 0.5s ease-out;
 }
 
+.colored{
+    font-weight: bold;
+    color: #f00;
+}
 .menu-icon {
     position: absolute;
     top: -160px;
@@ -169,7 +173,7 @@ a:hover , a:active , a:focus{
 }
 
 .internal-page{
-    width: 110%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -177,12 +181,18 @@ a:hover , a:active , a:focus{
     justify-content: flex-start;
     align-items: stretch;
     align-content: stretch;
-    margin-left: -5%;
     @extend .main-transition;
 
     .header-content{
+        width: 110%;
         height: 100vh;
         overflow: hidden;
+        background: #0ff;
+        margin-left: -5%;
+
+        // -webkit-perspective: 100px;
+        // perspective: 100px;
+        // perspective-origin: center;
 
         .header{
             width: 100%;
@@ -200,6 +210,9 @@ a:hover , a:active , a:focus{
             cursor: pointer;
             background: url(./assets/images/about.jpg);
             background-size: cover;
+
+            // -webkit-transform-style: preserve-3d;
+            // transform-style: preserve-3d;
         }
     }
 }
@@ -209,6 +222,26 @@ a:hover , a:active , a:focus{
     height: auto;
     width: 100%;
     color: #000;
-    text-align: center;
+
+    .about{
+        padding: 60px 0;
+        .about-content{
+            display:flex;
+            flex-direction: row;
+            .data{
+                width: 60%;
+                h2 {
+                    font-size: 5rem;
+                    text-transform: capitalize;
+                }
+                p{
+                    font-size: 2.3rem;
+                }
+            }
+            .image{
+                width:40%;
+            }
+        }
+    }
 }
 

@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AboutComponent } from './about/about.component';
 
 import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
-import { SkilsComponent } from './skils/skils.component';
+import { skillsComponent } from './skills/skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
 @NgModule({
@@ -24,7 +24,7 @@ import { ContactComponent } from './contact/contact.component';
     HomePageComponent,
     PageNotFoundComponent,
     AboutComponent,
-    SkilsComponent,
+    skillsComponent,
     PortfolioComponent,
     ContactComponent
   ],
