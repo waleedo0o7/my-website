@@ -35,6 +35,18 @@
 
     $(document).ready(function () {
 
+      var outerStrock = $(".outer-strock");
+      var innerStrock = $(".inner-strock");
+      
+      TweenLite.to(outerStrock, 80, {
+        rotation: "360"
+      }, 0);
+      
+      TweenLite.to(innerStrock, 80, {
+        rotation: "-360"
+      }, 0);
+
+      
       $('.animate').scrolla({
         mobile: false,
         once: false
