@@ -243,5 +243,235 @@ a:hover , a:active , a:focus{
             }
         }
     }
+
+    .carrer-content {
+        h2 {
+            font-size: 5rem;
+        }
+        .steps {
+            background: #f00;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-end;
+            align-content: center;
+            padding: 30px 0 ;
+            .one-step {
+                width: 23%;
+                position: relative;
+                z-index: 9;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    width: 88%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.1);
+                    border-right: 2px solid #000;
+                    border-bottom: 2px solid #000;
+                    right: -20px;
+                    bottom: -20px;
+                    z-index: -1;
+                }
+                .step-content{
+                    background: #fff;
+                    padding: 30px;
+                    display: inline-flex;
+                    flex-direction: column;
+                    text-transform: capitalize;
+                    width: 100%;
+                    z-index: 99;
+                }
+            }
+        }
+    }
+
+    .skills{
+        .design{
+            position: relative;
+            overflow: hidden;
+            .headline{
+                font-size: 6rem;
+                text-transform: capitalize;
+                margin-bottom: 50px;
+                position: absolute;
+                transform: rotate(90deg);
+                white-space: nowrap;
+                background: #f00;
+                color:#fff;
+                top: -72px;
+                left: 72px;
+                display: block;
+                width: 100%;
+                line-height: 1.5;
+                transform-origin: left;
+            }
+            .design-content{
+                padding: 80px 0;
+
+                .one-item{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: flex-start;
+                    align-items: stretch;
+                    align-content: stretch;
+                    margin-bottom: 30px;
+                    .image{
+                        img{
+                            max-width: 400px;
+                        }
+                    }
+                    .data{
+                        padding: 0 30px;
+                        h1{
+                            font-size: 5.2rem;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+                .one-item:nth-child(2){
+                    justify-content: flex-end;
+                    h1{
+                        text-align: right;
+                    }
+                }
+
+            }
+        }
+
+        .technical{
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            @extend .main-transition;
+            .headline{
+                padding: 0 30px;
+                font-size: 6rem;
+                text-transform: capitalize;
+                margin-bottom: 50px;
+                position: absolute;
+                transform: rotate(8deg);
+                white-space: nowrap;
+                background: #f0f;
+                color: #fff;
+                display: block;
+                line-height: 1.5;
+                width: 120%;
+                left: -10%;
+                top: -20px;
+            }
+
+            .technical-skills-container{
+                width: 900px;
+                height: 900px;
+                margin: auto;
+                position: relative;
+                background: #50f;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+            }
+            .skill {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                padding: 10px;
+                border: 4px solid #fff;
+                background: #fff;
+                position: absolute;
+                z-index: 99;
+            }
+
+
+
+.skill.html {
+    left: calc(50% - 75px);
+    top: -75px;
+}
+.skill.css {
+    left: 5%;
+    top: 10%;
+}
+.skill.js {
+    right: 5%;
+    top: 10%;
+}
+.skill.jquery {
+    right: 5%;
+    bottom: 10%;
+}
+.skill.bootstrap {
+    left: 5%;
+    bottom: 10%;
+}
+.skill.angular {
+    left: calc(50% - 75px);
+    bottom: -75px;
+}
+.skill.whm {
+    left: -75px;
+    top: calc( 50% - 75px );
+}
+.skill.cpanel {
+    right: -75px;
+    top: calc( 50% - 75px );
+}
+.skill.php {
+    left: calc(50% - 75px);
+    top: -75px;
+}
+.skill.mysql {
+    left: -55px;
+    bottom: 10%;
+}
+.skill.wordpress {
+    right: -55px;
+    bottom: 10%;
 }
 
+
+            .outer-circle{
+                width: 90%;
+                height: 90%;
+                position: absolute;
+                border-radius: 50%;
+            }
+            .inner-circle{
+                width: 40%;
+                height: 40%;
+                position: absolute;
+                border-radius: 50%;
+            }
+            .inner-circle , .outer-circle{
+                &::after{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border: 10px dashed #fff;
+                    border-radius: 50%;
+                    @extend .main-transition;
+                }
+            }
+            .main-circle{
+                width: 40%;
+                background: #f8f;
+                height: 40%;
+                position: absolute;
+                border-radius: 50%;
+                display: none;
+            }
+
+        }
+        .technical * {
+            @extend .main-transition;
+        }
+    }
+}
+
+ 

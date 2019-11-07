@@ -14,8 +14,8 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
-  ngOnInit() {
-    // add internal-page class to body
+  ngOnInit(){
+
     $("body").addClass("internal-page-body");
 
     var controller = new ScrollMagic.Controller();
@@ -24,8 +24,8 @@ export class AboutComponent implements OnInit, OnDestroy {
 
     var rotateBackToZero = TweenMax.to(pageHeader, 1, {
       rotation: -20,
-      scale:3,
-      opacity:0,
+      scale: 3,
+      opacity: 0,
       ease: Power0.easeNone
     })
 
@@ -37,6 +37,7 @@ export class AboutComponent implements OnInit, OnDestroy {
     })
       .setTween(rotateBackToZero).addTo(controller);
   }
+  
   ngOnDestroy() {
     // remove internal-page class from body
     $("body").removeClass("internal-page-body");
