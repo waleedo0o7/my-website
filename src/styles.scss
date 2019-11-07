@@ -343,8 +343,8 @@ a:hover , a:active , a:focus{
 
         .technical{
             position: relative;
-            height: 100vh;
             width: 100%;
+            padding: 180px 0 100px 0;
             @extend .main-transition;
             .headline{
                 padding: 0 30px;
@@ -501,17 +501,23 @@ a:hover , a:active , a:focus{
                     text-transform: capitalize;
                 }
                 .time,.project,.seo{
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    justify-content: center;
-                    align-items: center;
-                    align-content: center;
-                    width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        justify-content: center;
+                        align-items: center;
+                        align-content: center;
+                        width: 100%;
+                        h1{
+                            transform: rotate(-8deg);
+                            line-height: 0.8;
+                            height: 200px;
+                        }
+                    }
+                .project{
+                    flex-direction:row-reverse;
                     h1{
-                        transform: rotate(-8deg);
-                        line-height: 0.8;
-                        height: 200px;
+                        transform: rotate(8deg);
                     }
                 }
             }
