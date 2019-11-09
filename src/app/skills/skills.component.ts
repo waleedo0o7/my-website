@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 declare var $: any;
+
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',

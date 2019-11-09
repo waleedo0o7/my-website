@@ -1,9 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
+
 
 declare var $: any;
 declare var ScrollMagic: any;
 declare var TweenMax: any;
 declare var Power0: any;
+
+declare var Splitting: any;
 
 @Component({
   selector: 'app-about',
@@ -12,9 +15,10 @@ declare var Power0: any;
 })
 export class AboutComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(){
+    Splitting();
 
     $("body").addClass("internal-page-body");
 
@@ -35,7 +39,21 @@ export class AboutComponent implements OnInit, OnDestroy {
       triggerHook: 0,
       duration: '80%',
     })
+      .addIndicators() // add indicators (requires plugin)
       .setTween(rotateBackToZero).addTo(controller);
+
+
+    // build scenes
+    new ScrollMagic.Scene({
+      triggerElement: ".about-content",
+      duration: '80%',
+      triggerHook: 0.9,
+    })
+    .setClassToggle(".data h2", "head-in") // add class toggle
+    .addIndicators() // add indicators (requires plugin)
+    .addTo(controller);
+
+
   }
   
   ngOnDestroy() {

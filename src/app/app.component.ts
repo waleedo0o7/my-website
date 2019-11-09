@@ -14,14 +14,12 @@ export class AppComponent {
 
     // open and close menu
     $(".menu-icon , .menu-link").on("click", function() {
+
       if ($(".menu-container").hasClass("active")) {
-
         $(".menu-container ul").removeClass("active");
-
         setTimeout(() => {
           $(".menu-container").removeClass("active");
         }, 500);
-
       } else {
         $(".menu-container").addClass("active");
         setTimeout(() => {
@@ -29,7 +27,5 @@ export class AppComponent {
         }, 500);
       }
     })
-
-    
   }
 }

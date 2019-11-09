@@ -26,6 +26,7 @@
     "ngx-bootstrap": "^5.2.0",
     "particles.js": "^2.0.0",
     "rxjs": "~6.4.0",
+    "scroll-out": "^2.2.7",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
