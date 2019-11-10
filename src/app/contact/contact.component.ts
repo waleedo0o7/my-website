@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 declare var $: any;
 
@@ -9,9 +10,16 @@ declare var $: any;
 })
 export class ContactComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
+    
     // add internal-page class to body
     $("body").addClass("internal-page-body");
   }

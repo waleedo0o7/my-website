@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RouterLinkDelayModule } from '@bcodes/ngx-routerlink-delay';
+import { Router, NavigationEnd } from '@angular/router';
 
 declare var $: any;
 
@@ -10,9 +11,16 @@ declare var $: any;
 })
 export class HomePageComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
 
     // add overflow hidden to body in homepage 
     $("body").addClass("home-page");

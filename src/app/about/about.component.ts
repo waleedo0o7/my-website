@@ -1,14 +1,16 @@
 import { Component, OnInit, OnDestroy, ElementRef } from '@angular/core';
-
+import { Router, NavigationEnd } from '@angular/router';
 
 declare var $: any;
 declare var ScrollMagic: any;
 declare var TweenMax: any;
+declare var TweenLite:any;
+declare var TimelineLite:any;
 declare var Power0: any;
 declare var Back:any;
 declare var Circ:any;
-
 declare var Splitting: any;
+declare var Linear:any;
 
 @Component({
   selector: 'app-about',
@@ -17,9 +19,16 @@ declare var Splitting: any;
 })
 export class AboutComponent implements OnInit, OnDestroy {
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(){
+    
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
 
     Splitting({target: '.splited-headline', by: 'chars' });
 
@@ -111,8 +120,6 @@ export class AboutComponent implements OnInit, OnDestroy {
 
       $(".one-step").each(function(){
 
-        console.log(this.children[0]);
-
         var stepsTweens = TweenMax.from(this.children[0],0.9,{
           rotationY:91,
           ease: Back.easeInOut.config(1.7)
@@ -137,8 +144,6 @@ export class AboutComponent implements OnInit, OnDestroy {
       })
       .setTween(meTweenMax).addTo(controller);
       // me end
-
-
   }
   
   ngOnDestroy() {

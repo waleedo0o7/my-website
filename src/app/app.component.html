@@ -1,11 +1,14 @@
-<i class="fa fa-bars menu-icon"></i>
+<i (click)="clickMenuActive()" class="fa fa-bars menu-icon"></i>
+<div class="layer layer1"></div>
+<div class="layer layer2"></div>
+<div class="layer layer3"></div>
 <div class="menu-container">
     <ul>
-        <li> <a class="menu-link" routerLink="/home"> home page </a></li>
-        <li> <a class="menu-link" routerLink="/about"> about </a></li>
-        <li> <a class="menu-link" routerLink="/skills"> skills </a></li>
-        <li> <a class="menu-link" routerLink="/portfolio"> portfolio </a> </li>
-        <li> <a class="menu-link" routerLink="/contact"> contact </a> </li>
+        <li> <a class="menu-link" routerLink="/home" (click)="clickMenuActive()"> home page </a></li>
+        <li> <a class="menu-link" routerLink="/about" (click)="clickMenuActive()"> about </a></li>
+        <li> <a class="menu-link" routerLink="/skills" (click)="clickMenuActive()"> skills </a></li>
+        <li> <a class="menu-link" routerLink="/portfolio" (click)="clickMenuActive()"> portfolio </a> </li>
+        <li> <a class="menu-link" routerLink="/contact" (click)="clickMenuActive()"> contact </a> </li>
     </ul>
 </div>
 <router-outlet></router-outlet>
