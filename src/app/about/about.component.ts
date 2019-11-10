@@ -121,7 +121,6 @@ export class AboutComponent implements OnInit, OnDestroy {
         var stepsScene = new ScrollMagic.Scene({
           triggerElement: ".steps",
         })
-          .addIndicators()
           .setTween(stepsTweens).addTo(controller);
 
       });
@@ -136,7 +135,6 @@ export class AboutComponent implements OnInit, OnDestroy {
       var meScene = new ScrollMagic.Scene({
         triggerElement: ".about-footer",
       })
-      .addIndicators()
       .setTween(meTweenMax).addTo(controller);
       // me end
 
