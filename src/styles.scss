@@ -45,7 +45,7 @@ a:hover , a:active , a:focus{
 
 .colored{
     font-weight: bold;
-    color: #f00;
+    color: #1bff00;
 }
 .menu-icon {
     position: absolute;
@@ -187,7 +187,7 @@ a:hover , a:active , a:focus{
         width: 110%;
         height: 100vh;
         overflow: hidden;
-        background: #0ff;
+        background: #000;
         margin-left: -5%;
 
         // -webkit-perspective: 100px;
@@ -219,10 +219,10 @@ a:hover , a:active , a:focus{
 
 
 .content{
-    background: #0ff;
+    background: #000;
     height: auto;
     width: 100%;
-    color: #000;
+    color: #FFF;
 
     .about{
         padding: 60px 0;
@@ -235,26 +235,11 @@ a:hover , a:active , a:focus{
                     font-size: 5rem;
                     text-transform: capitalize;
                     @extend .main-transition;
-                    .char{
-                      transform: translateX(-300px) rotate(-1800deg) scale(0.2);
-                      display: inline-block;
-                      opacity: 0;
-                      @extend .main-transition;
-                      transition-delay: calc(50ms * var(--char-index));
-                    }
                 }
                 p{
+                    @extend .main-transition;
                     font-size: 2.3rem;
                 }
-            }
-            .data{
-              h2.head-in .char {
-                transform: translateX(0px) rotate(0deg) scale(1);                
-                opacity: 1;
-                @extend .main-transition;
-                transition-delay: calc(50ms * var(--char-index));
-              }
-              
             }
             .image{
                 width:40%;
@@ -265,9 +250,9 @@ a:hover , a:active , a:focus{
     .carrer-content {
         h2 {
             font-size: 5rem;
+            margin-bottom: -130px;
         }
         .steps {
-            background: #f00;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -279,26 +264,71 @@ a:hover , a:active , a:focus{
                 width: 23%;
                 position: relative;
                 z-index: 9;
-                &::before{
-                    content: "";
-                    position: absolute;
-                    width: 88%;
-                    height: 100%;
-                    background: rgba(0,0,0,0.1);
-                    border-right: 2px solid #000;
-                    border-bottom: 2px solid #000;
-                    right: -20px;
-                    bottom: -20px;
-                    z-index: -1;
-                }
+                -webkit-perspective: 270px; /* Safari 4-8  */
+                perspective: 270px;
                 .step-content{
                     background: #fff;
+                    color: #000;
                     padding: 30px;
                     display: inline-flex;
                     flex-direction: column;
                     text-transform: capitalize;
                     width: 100%;
                     z-index: 99;
+                    -webkit-transform-style: preserve-3d; /* Safari 3-8  */  
+                    transform-style: preserve-3d;
+                }
+            }
+
+            .one-step:nth-child(1){
+            }
+
+            .one-step:nth-child(2){
+                margin-left: -20px;
+                margin-bottom: 80px;
+            }
+
+            .one-step:nth-child(3){
+                margin-left: -20px;
+                margin-bottom: 160px; 
+            }
+
+            .one-step:nth-child(4){
+                margin-left: -20px;
+                margin-bottom: 240px; 
+            }
+
+        }
+    }
+
+    .about-footer{
+        .about-footer-content{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: stretch;
+            align-content: stretch;
+            padding-top: 80px;
+
+            .my-image{
+                position: relative;
+                width: 65%;
+                .me{
+                    position: absolute;
+                    left: 298px;
+                }
+                .laptop{
+                    z-index: 9999;
+                    position: relative;
+                }
+            }
+            .data{
+                width: 35%;
+                position: relative;
+                p{
+                    font-size: 4.5rem;
+                    text-transform: capitalize;
                 }
             }
         }
@@ -544,3 +574,43 @@ a:hover , a:active , a:focus{
 
     }
 }
+
+
+
+
+
+
+//  Splited animation start 
+
+.char{
+    transform: translateX(-300px) rotate(-1800deg) scale(0.2);
+    display: inline-block;
+    opacity: 0;
+    @extend .main-transition;
+    transition-delay: calc(50ms * var(--char-index));
+}
+
+.head-in .char {
+    transform: translateX(0px) rotate(0deg) scale(1);                
+    opacity: 1;
+    @extend .main-transition;
+    transition-delay: calc(50ms * var(--char-index));
+}
+
+.splited-paragraph .word{
+    opacity: 0;
+    transform: translate(0, 30px);
+    @extend .main-transition;
+    transition-delay: calc(20ms * var(--word-index));
+}
+
+.paragraph-in .word{
+    opacity: 1;
+    transform: translate(0, 0);
+    @extend .main-transition;
+    transition-delay: calc(20ms * var(--word-index));
+
+}
+
+
+//  Splited animation end 
