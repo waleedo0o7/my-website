@@ -424,9 +424,13 @@ a:hover , a:active , a:focus{
                     }
                     .data{
                         padding: 0 30px;
+                        @extend .main-transition;
+                        transition-delay: calc(50ms * var(--char-index));
                         h1{
                             font-size: 5.2rem;
                             text-transform: capitalize;
+                            @extend .main-transition;
+                            transition-delay: calc(50ms * var(--char-index));
                         }
                     }
                 }
@@ -667,6 +671,11 @@ a:hover , a:active , a:focus{
     @extend .main-transition;
     transition-delay: calc(50ms * var(--char-index));
 }
+
+.data2 .char {
+    transform: translateX(0) rotate(0);
+}
+
 
 .splited-paragraph .word{
     opacity: 0;
