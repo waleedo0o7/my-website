@@ -90,10 +90,10 @@ export class skillsComponent implements OnInit, OnDestroy {
           {autoAlpha:0},{autoAlpha:1},"start+=1")
 
           .fromTo($(this).find(".data"),0.5,
-          {autoAlpha:0},{autoAlpha:1},"start+=1.5")
+          {autoAlpha:0},{autoAlpha:1},"start+=1.0")
 
           var imagesScene = new ScrollMagic.Scene({
-            triggerElement : this,
+            triggerElement: this,
             triggerHook: 0.7,
           })
             .setTween(imagesTweenTl).addTo(controller);
@@ -112,7 +112,7 @@ export class skillsComponent implements OnInit, OnDestroy {
             .staggerFrom($(this).find(".skill"),0.5,{scale:0},0.2)
             
           var imagesScene = new ScrollMagic.Scene({
-            triggerElement : this,
+            triggerElement: this,
             triggerHook: 0.7,
           })
             .setTween(skillsTweenTl).addTo(controller);
@@ -128,11 +128,11 @@ export class skillsComponent implements OnInit, OnDestroy {
 
       new ScrollMagic.Scene({
         triggerElement: this.children[0],
-        duration: '80%',
+        duration: '100%',
         triggerHook: 0.9,
       })
       .setClassToggle(this, "head-in") // add class toggle
-      // .addIndicators() // add indicators (requires plugin)
+      //.addIndicators() // add indicators (requires plugin)
       .addTo(controller);
       
     });
@@ -155,7 +155,17 @@ export class skillsComponent implements OnInit, OnDestroy {
     // soft effects end
 
 
-
+ 
+    // me start
+    var meTweenMax = TweenMax.fromTo(".me", 1, {
+      top: "55px",
+      ease: Back.easeInOut.config(1.7)
+    }, { top: "-78", ease: Back.easeInOut.config(1.7) })
+    var meScene = new ScrollMagic.Scene({
+      triggerElement: ".page-footer",
+    })
+      .setTween(meTweenMax).addTo(controller);
+      // me end
 
     
     // add internal-page class to body

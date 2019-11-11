@@ -140,7 +140,7 @@ export class AboutComponent implements OnInit, OnDestroy {
         ease: Back.easeInOut.config(1.7)
       },{top: "-78",ease: Back.easeInOut.config(1.7)})
       var meScene = new ScrollMagic.Scene({
-        triggerElement: ".about-footer",
+        triggerElement: ".page-footer",
       })
       .setTween(meTweenMax).addTo(controller);
       // me end

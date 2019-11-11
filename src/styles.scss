@@ -330,42 +330,6 @@ a:hover , a:active , a:focus{
         }
     }
 
-    .about-footer{
-        .about-footer-content{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
-            align-items: stretch;
-            align-content: stretch;
-            padding-top: 80px;
-
-            .my-image{
-                position: relative;
-                width: 65%;
-                .me{
-                    position: absolute;
-                    left: 298px;
-                }
-                .laptop{
-                    z-index: 9999;
-                    position: relative;
-                }
-            }
-            .data{
-                width: 35%;
-                position: relative;
-                p{
-                    font-size: 4.5rem;
-                    text-transform: capitalize;
-                    a{
-                        color: #fff;
-                    }
-                }
-            }
-        }
-    }
-
     .skills-page{
         .design{
             position: relative;
@@ -647,6 +611,88 @@ a:hover , a:active , a:focus{
 
         }
 
+    }
+
+    .page-footer{
+        .about-footer-content{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: stretch;
+            align-content: stretch;
+            padding-top: 80px;
+
+            .my-image{
+                position: relative;
+                width: 65%;
+                .me{
+                    position: absolute;
+                    left: 298px;
+                }
+                .laptop{
+                    z-index: 9999;
+                    position: relative;
+                }
+            }
+            .data{
+                width: 35%;
+                position: relative;
+                p{
+                    font-size: 4.5rem;
+                    text-transform: capitalize;
+                    a{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .portfolio-page{
+        padding: 120px 0 ;
+        .one-item{
+            display:flex;
+            margin: 70px 0;
+            img{
+                max-width: 600px;
+            }
+        }
+        .one-item.left {
+            justify-content: flex-start;
+        }
+        .one-item.right {
+            justify-content: flex-end;
+        }
+        .one-item.center {
+            justify-content: center;
+        }
+        .one-item:nth-child(1){
+            position: relative;
+            margin-left: -90px;
+        }
+
+        .one-item:nth-child(2){ 
+            position: relative;
+            margin-right: -90px;
+        }
+
+        .one-item:nth-child(3){ 
+            position: relative;
+            margin-right: 190px;
+        }
+
+        .one-item:nth-child(4){ 
+            position: relative;
+        }
+
+        .one-item:nth-child(5){ 
+            position: relative;
+        }
+
+        .one-item:nth-child(6){ 
+            position: relative;
+        }
     }
 }
 
