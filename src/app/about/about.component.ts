@@ -109,9 +109,9 @@ export class AboutComponent implements OnInit, OnDestroy {
             triggerHook: 1,
             duration: '200%',
           })
-            //.addIndicators()
-            .setTween(parallax).addTo(controller);
-            
+          //.addIndicators()
+          .setTween(parallax).addTo(controller);
+          
       // parallax effect end
 
 
