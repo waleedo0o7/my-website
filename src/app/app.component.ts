@@ -3,14 +3,19 @@ import { Component } from '@angular/core';
 declare var $: any;
 declare var ScrollMagic: any;
 declare var TweenMax: any;
+declare var TweenLite: any;
 declare var TimelineLite: any;
 declare var Power0: any;
+declare var Power4: any;
+declare var SlowMo: any;
+declare var Elastic: any;
+declare var Expo: any;
 declare var Back: any;
 declare var Circ: any;
 declare var Splitting: any;
-declare var Expo:any;
-declare var Power4:any;
-declare var Power0:any;
+declare var Linear: any;
+declare var Bounce: any;
+declare var scrollToTop: any;
 
 @Component({
   selector: 'app-root',
@@ -18,6 +23,7 @@ declare var Power0:any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'my-website';
 
   menuStartTl = new TimelineLite();
@@ -57,12 +63,8 @@ export class AppComponent {
 
   }
 
-
-
-
-  
-
   ngOnInit() {
-
   }
+
+
 }

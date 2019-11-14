@@ -15,7 +15,18 @@ declare var Back: any;
 declare var Circ: any;
 declare var Splitting: any;
 declare var Linear: any;
-declare var Bounce:any;
+declare var Bounce: any;
+
+
+declare var scrollToTop: any;
+declare var cursorEffect: any;
+declare var pageHeaderEffect: any;
+declare var headlineEffect: any;
+declare var paragraphEffect: any;
+declare var imageParallaxEffect: any;
+declare var meEffect: any;
+
+
 
 @Component({
   selector: 'app-skills',
@@ -28,103 +39,7 @@ export class skillsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-
-    var cursor = $(".your-cursor2"),
-    follower = $(".follow2");
-  
-  var posX = 0,
-    posY = 0;
-  
-  var mouseX = 0,
-    mouseY = 0;
-  
-  TweenMax.to({}, 0.016, {
-    repeat: -1,
-    onRepeat: function() {
-      posX += (mouseX - posX) / 9;
-      posY += (mouseY - posY) / 9;
-  
-      TweenMax.set(follower, {
-        css: {    
-          left: posX - 12,
-          top: posY - 12
-        }
-      });
-  
-      TweenMax.set(cursor, {
-        css: {    
-          left: mouseX,
-          top: mouseY
-        }
-      });
-    }
-  });
-  
-  $(document).on("mousemove", function(e) {
-    mouseX = e.pageX;
-    mouseY = e.pageY;
-  });
-  
-  $("a").on("mouseenter", function() {
-    cursor.addClass("active");
-    follower.addClass("active");
-  });
-  $("a").on("mouseleave", function() {
-    cursor.removeClass("active");
-    follower.removeClass("active");
-  });
-
-
-
-
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
-        return;
-      }
-      window.scrollTo(0, 0)
-    });
-
-    // inner pages header effect start 
-
     var controller = new ScrollMagic.Controller();
-
-    var pageHeader = $(".internal-page .header");
-
-    var rotateBackToZero = TweenMax.to(pageHeader, 1, {
-      rotation: -20,
-      scale: 3,
-      opacity: 0,
-      ease: Power0.easeNone
-    })
-
-    // Create scrollmagic scene
-    var parallaxScene = new ScrollMagic.Scene({
-      triggerElement: pageHeader, // <-- Use this to select current element
-      triggerHook: 0,
-      duration: '80%',
-    })
-      //.addIndicators() // add indicators (requires plugin)
-      .setTween(rotateBackToZero).addTo(controller);
-      
-    // inner pages header effect end
-
-
-    // headline effect start
-    $(".headline").each(function(){
-
-        var headlineTween = TweenMax.fromTo(this.children[0],5,
-        { x:-1000},{x:0})
-        var headlineScene = new ScrollMagic.Scene({
-          triggerElement: this,
-          duration: '250%',
-          triggerHook: 1,
-        })
-          // .addIndicators()
-          .setTween(headlineTween).addTo(controller);
-      
-    });
-    // headline effect end
-
     // images slideIn start
     $(".design-content .one-item").each(function(){
       
@@ -150,8 +65,23 @@ export class skillsComponent implements OnInit, OnDestroy {
     });
     // images slideIn end
 
-    // skills effect start
+    // moving headline effect start
+    $(".headline").each(function () {
 
+      var headlineTween = TweenMax.fromTo(this.children[0], 5,
+        { x: -1000 }, { x: 0 })
+      var headlineScene = new ScrollMagic.Scene({
+        triggerElement: this,
+        duration: '250%',
+        triggerHook: 1,
+      })
+        // .addIndicators()
+        .setTween(headlineTween).addTo(controller);
+
+    });
+    // moving headline effect end
+
+    // skills effect start
     $(".technical-skills-container").each(function(){
 
       var skillsTweenTl = new TimelineLite();
@@ -167,25 +97,7 @@ export class skillsComponent implements OnInit, OnDestroy {
             .setTween(skillsTweenTl).addTo(controller);
 
     });
-
     // skills effect end
-
-    // heading effect start
-    Splitting({target: '.splited-headline', by: 'chars' });
-
-    $(".data").each(function(){
-
-      new ScrollMagic.Scene({
-        triggerElement: this.children[0],
-        duration: '100%',
-        triggerHook: 0.9,
-      })
-      .setClassToggle(this, "head-in") // add class toggle
-      //.addIndicators() // add indicators (requires plugin)
-      .addTo(controller);
-      
-    });
-    // heading effect end
 
     // soft effects start
     $(".soft-content .data").each(function(){
@@ -203,23 +115,14 @@ export class skillsComponent implements OnInit, OnDestroy {
     })
     // soft effects end
 
-
- 
-    // me start
-    var meTweenMax = TweenMax.fromTo(".me", 1, {
-      top: "55px",
-      ease: Back.easeInOut.config(1.7)
-    }, { top: "-78", ease: Back.easeInOut.config(1.7) })
-    var meScene = new ScrollMagic.Scene({
-      triggerElement: ".page-footer",
-    })
-      .setTween(meTweenMax).addTo(controller);
-      // me end
-
-    
     // add internal-page class to body
     $("body").addClass("internal-page-body");
   }
+
+  ngAfterViewInit() {
+    scrollToTop(); cursorEffect(); pageHeaderEffect(); headlineEffect(); paragraphEffect(); meEffect();
+  }
+
   ngOnDestroy() {
     // remove internal-page class from body
     $("body").removeClass("internal-page-body");

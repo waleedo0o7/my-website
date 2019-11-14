@@ -1,21 +1,24 @@
   $(document).ready(function () {
 
-    var outerStrock = $(".outer-strock");
-    var innerStrock = $(".inner-strock");
+    // var outerStrock = $(".outer-strock");
+    // var innerStrock = $(".inner-strock");
     
-    TweenLite.to(outerStrock, 1, {
-      rotation: "360"
-    }, 0);
+    // TweenLite.to(outerStrock, 1, {
+    //   rotation: "360"
+    // }, 0);
     
-    TweenLite.to(innerStrock, 1, {
-      rotation: "-360"
-    }, 0);
+    // TweenLite.to(innerStrock, 1, {
+    //   rotation: "-360"
+    // }, 0);
 
     
-    $('.animate').scrolla({
-      mobile: false,
-      once: false
-    });
+    // $('.animate').scrolla({
+    //   mobile: false,
+    //   once: false
+    // });
+
+
+
 
     // background Parallax Effect start
     // 	init scrollmagic
@@ -61,26 +64,29 @@
   });
 
     
+
+
+
     // mousemove effect
-    $(document).mousemove(function (event) {
+    // $(document).mousemove(function (event) {
 
 
-      $(".carousel-item.active img").each(function (index, element) {
-        var xPos = (event.clientX / $(window).width()) - 0.5,
-          yPos = (event.clientY / $(window).height()) - 0.5,
-          box = element;
-          //imgPositionLeft = $(this).position().left;
-          //imgPositionTop = $(this).position().top;
-          //mousePositionX = event.pageX;
-          //mousePositionY = event.pageY;
-          // console.log(mousePositionX)
+    //   $(".carousel-item.active img").each(function (index, element) {
+    //     var xPos = (event.clientX / $(window).width()) - 0.5,
+    //       yPos = (event.clientY / $(window).height()) - 0.5,
+    //       box = element;
+    //       //imgPositionLeft = $(this).position().left;
+    //       //imgPositionTop = $(this).position().top;
+    //       //mousePositionX = event.pageX;
+    //       //mousePositionY = event.pageY;
+    //       // console.log(mousePositionX)
 
-        TweenLite.to(box, 1, {
-          rotationY: xPos * 50,
-          rotationX: yPos * 50,
-          ease: Power1.easeOut,
-        });
+    //     TweenLite.to(box, 1, {
+    //       rotationY: xPos * 50,
+    //       rotationX: yPos * 50,
+    //       ease: Power1.easeOut,
+    //     });
 
-      })
+    //   })
 
-    });
+    // });

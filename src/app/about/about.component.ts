@@ -4,13 +4,27 @@ import { Router, NavigationEnd } from '@angular/router';
 declare var $: any;
 declare var ScrollMagic: any;
 declare var TweenMax: any;
-declare var TweenLite:any;
-declare var TimelineLite:any;
+declare var TweenLite: any;
+declare var TimelineLite: any;
 declare var Power0: any;
-declare var Back:any;
-declare var Circ:any;
+declare var Power4: any;
+declare var SlowMo: any;
+declare var Elastic: any;
+declare var Expo: any;
+declare var Back: any;
+declare var Circ: any;
 declare var Splitting: any;
-declare var Linear:any;
+declare var Linear: any;
+declare var Bounce: any;
+
+declare var scrollToTop:any;
+declare var cursorEffect: any;
+declare var pageHeaderEffect:any;
+declare var headlineEffect:any;
+declare var paragraphEffect:any;
+declare var imageParallaxEffect:any;
+declare var meEffect:any;
+
 
 @Component({
   selector: 'app-about',
@@ -22,130 +36,57 @@ export class AboutComponent implements OnInit, OnDestroy {
   constructor(private router: Router) {}
 
   ngOnInit(){
-    
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
-        return;
-      }
-      window.scrollTo(0, 0)
-    });
-
-    Splitting({target: '.splited-headline', by: 'chars' });
-
-    Splitting({target: '.splited-paragraph', by: 'words' });
 
     $("body").addClass("internal-page-body");
-
-    // inner pages header effect start 
-
+    
     var controller = new ScrollMagic.Controller();
+ 
+    // image Parallax Effect for About Page start
 
-    var pageHeader = $(".internal-page .header");
+            var item = document.getElementById("my-image");
 
-    var rotateBackToZero = TweenMax.to(pageHeader, 1, {
-      rotation: -20,
-      scale: 3,
-      opacity: 0,
-      ease: Power0.easeNone
-    })
+            // Add tweenmax for background Parallax
+            var parallax = TweenMax.to(item, 1, {
+              y: '-200px',
+              ease: Power0.easeNone
+            });
 
-    // Create scrollmagic scene
-    var parallaxScene = new ScrollMagic.Scene({
-      triggerElement: pageHeader, // <-- Use this to select current element
-      triggerHook: 0,
-      duration: '80%',
-    })
-      //.addIndicators() // add indicators (requires plugin)
-      .setTween(rotateBackToZero).addTo(controller);
-      
-    // inner pages header effect end
+            // Create scrollmagic scene
+            var parallaxScene = new ScrollMagic.Scene({
+              triggerElement: this, // <-- Use this to select current element
+              triggerHook: 1,
+              duration: '200%',
+            })
+              //.addIndicators()
+              .setTween(parallax).addTo(controller);
 
-    // heading effect start
-
-    $(".data").each(function(){
-
-      new ScrollMagic.Scene({
-        triggerElement: this.children[0],
-        duration: '80%',
-        triggerHook: 0.9,
-      })
-      .setClassToggle(this, "head-in") // add class toggle
-      // .addIndicators() // add indicators (requires plugin)
-      .addTo(controller);
-      
-    });
-
-    // heading effect end 
-
-    // paragraph effect start 
-    
-    new ScrollMagic.Scene({
-      triggerElement: ".splited-paragraph",
-      duration: '80%',
-      triggerHook: 0.8,
-    })
-    .setClassToggle(".splited-paragraph", "paragraph-in") // add class toggle
-    //.addIndicators() // add indicators (requires plugin)
-    .addTo(controller);
-    
-    // paragraph effect end
+      // image Parallax Effect for About Page END
 
 
+      // steps for About Page START
 
+            $(".one-step").each(function(){
 
-    // parallax effect start 
+              var stepsTweens = TweenMax.from(this.children[0],0.9,{
+                rotationY:91,
+                ease: Back.easeInOut.config(1.7)
+              })
+        
+              var stepsScene = new ScrollMagic.Scene({
+                triggerElement: ".steps",
+              })
+                .setTween(stepsTweens).addTo(controller);
 
-          var item = $(".image");
+            });
 
-          // Add tweenmax for background Parallax
-          var parallax = TweenMax.to(item, 1, {
-            y: '-150px',
-            ease: Power0.easeNone
-          });
+      // steps  for About Page END
 
-          // Create scrollmagic scene
-          var parallaxScene = new ScrollMagic.Scene({
-            triggerElement: this, // <-- Use this to select current element
-            triggerHook: 1,
-            duration: '200%',
-          })
-          //.addIndicators()
-          .setTween(parallax).addTo(controller);
-          
-      // parallax effect end
-
-
-
-      // start steps
-
-      $(".one-step").each(function(){
-
-        var stepsTweens = TweenMax.from(this.children[0],0.9,{
-          rotationY:91,
-          ease: Back.easeInOut.config(1.7)
-        })
-  
-        var stepsScene = new ScrollMagic.Scene({
-          triggerElement: ".steps",
-        })
-          .setTween(stepsTweens).addTo(controller);
-
-      });
-
-      // end steps
-
-      // me start
-      var meTweenMax = TweenMax.fromTo(".me",1,{
-        top: "55px",
-        ease: Back.easeInOut.config(1.7)
-      },{top: "-78",ease: Back.easeInOut.config(1.7)})
-      var meScene = new ScrollMagic.Scene({
-        triggerElement: ".page-footer",
-      })
-      .setTween(meTweenMax).addTo(controller);
-      // me end
   }
   
+  ngAfterViewInit() { 
+      scrollToTop(); cursorEffect(); pageHeaderEffect(); headlineEffect(); paragraphEffect(); meEffect();
+  }
+
   ngOnDestroy() {
     // remove internal-page class from body
     $("body").removeClass("internal-page-body");
