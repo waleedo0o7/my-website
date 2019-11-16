@@ -63,7 +63,7 @@ function pageHeaderEffect() {
     var pageHeader = $(".internal-page .header");
 
     var rotateBackToZero = TweenMax.to(pageHeader, 1, {
-        rotation: -20,
+        // rotation: -20,
         scale: 3,
         opacity: 0,
         ease: Power0.easeNone
@@ -72,7 +72,7 @@ function pageHeaderEffect() {
     // Create scrollmagic scene
     var parallaxScene = new ScrollMagic.Scene({
         triggerElement: pageHeader, // <-- Use this to select current element
-        triggerHook: 0,
+        triggerHook: 0.5,
         duration: '80%',
     })
         //.addIndicators() // add indicators (requires plugin)

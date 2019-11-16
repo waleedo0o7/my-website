@@ -5,6 +5,36 @@
 
 
 
+
+
+/*
+ *  STYLE 15
+ */
+
+::-webkit-scrollbar-track
+ {
+     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+     background-color: #F5F5F5;
+     border-radius: 0;
+ }
+ 
+::-webkit-scrollbar
+ {
+     width: 5px;
+     background-color: #F5F5F5;
+ }
+ 
+::-webkit-scrollbar-thumb
+ {
+    border-radius: 0px;
+    background-color: #FFF;
+    background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#24242d), to(#24242d), color-stop(0.6, #5472de));
+ }
+
+ 
+
+
+
 body, * {
     cursor: none !important;
 }
@@ -233,7 +263,6 @@ a:hover , a:active , a:focus{
     align-content: stretch;
     overflow: hidden;
     margin-left: -5%;
-    @extend .main-transition;
 
     .one-item{
         width: 25%;
@@ -247,17 +276,16 @@ a:hover , a:active , a:focus{
         border: 6px solid #fff;
         margin-top: -10%;
         transform: rotate(8deg);
-        background: url(./assets/images/about.jpg);
         background-size: cover;
-        @extend .main-transition;
         cursor: pointer;
         color: #fff;
         font-size: 55px;
         text-transform: uppercase;
+        transition: all 1s ease-in-out;
 
         &:hover{
             width: 800px;
-            @extend .main-transition;
+            transition: all 1s ease-in-out;
         }
 
         &:after{
@@ -281,7 +309,54 @@ a:hover , a:active , a:focus{
         content: none;
     }
 
+
+    #about {
+        background-image: url(./assets/images/about.jpg);
+        //background-position: -480px 60px;
+    }
+    
+    
+    #skills {
+        background-image: url(./assets/images/about.jpg);
+        //background-position: -500px 60px;
+    }
+    
+    
+    #portfolio {
+        background-image: url(./assets/images/about.jpg);
+        //background-position: -410px 70px;
+    }
+    
+    
+    #contact {
+        background-image: url(./assets/images/about.jpg);
+        // background-position: -700px -60px;
+    }
+    
+
 }
+
+
+
+
+.home-page-component .one-item.active#about {
+    margin-right : -35px  ;
+}
+
+.home-page-component .one-item.active#skills {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.home-page-component .one-item.active#portfolio{
+    margin-left: -25px;
+    margin-right: -15px;
+}
+.home-page-component .one-item.active#contact {
+    margin-left : -35px  ;
+}
+
+
 
 .internal-page{
     width: 100%;
@@ -301,9 +376,6 @@ a:hover , a:active , a:focus{
         background: #000;
         margin-left: -5%;
 
-        // -webkit-perspective: 100px;
-        // perspective: 100px;
-        // perspective-origin: center;
 
         .header{
             width: 100%;
@@ -319,14 +391,24 @@ a:hover , a:active , a:focus{
             transform: rotate(8deg);
             @extend .main-transition;
             cursor: pointer;
-            background: url(./assets/images/about.jpg);
             background-size: cover;
+            background-position: 0 0;
 
             // -webkit-transform-style: preserve-3d;
             // transform-style: preserve-3d;
         }
     }
 }
+
+
+.internal-page#about .header-content .header{ background-image: url(./assets/images/about.jpg); }
+
+.internal-page#skills .header-content .header{ background-image: url(./assets/images/about.jpg); }
+
+.internal-page#portfolio .header-content .header{ background-image: url(./assets/images/about.jpg);}
+
+.internal-page#contact .header-content .header{ background-image: url(./assets/images/about.jpg);}
+
 
 .form-control {
     background: unset;
@@ -340,7 +422,7 @@ a:hover , a:active , a:focus{
     height: auto;
     width: 100%;
     color: #FFF;
-    padding: 120px 0;
+    padding: 0 0 120px 0;
 
     .about{
         padding: 60px 0;
@@ -901,14 +983,11 @@ a:hover , a:active , a:focus{
 
 //  Splited animation end 
 
-
-
-
-
 .one-item span {
     transform: rotate(-8deg);
     z-index: 9999;
 }
+
 .home-page-component .one-item:nth-child(1):after {
     background: rgba(150, 3, 130, 0.3);
 }

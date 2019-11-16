@@ -51,9 +51,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
       $(".one-item").css({"opacity": "0","width": "0%"});
 
-      $(this).css({"opacity" : "1","width" : "100%",});
+      $(this).css({"opacity" : "1","width" : "100%","background-position": "0 0"});
 
-    });    
+    });
 
   }
   ngAfterViewInit() {
