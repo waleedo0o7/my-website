@@ -50,7 +50,7 @@ body, * {
     transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
     user-select: none;
     pointer-events: none;
-    z-index: 10000;
+    z-index: 9999999;
     transform: scale(1);
 
     &.active {
@@ -82,7 +82,7 @@ body, * {
         0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) background;
     user-select: none;
     pointer-events: none;
-    z-index: 10000;
+    z-index: 9999999;
     transform: translate(2px, 2px);
     //overflow: hidden;
 
@@ -161,10 +161,10 @@ a:hover , a:active , a:focus{
     color: #1bff00;
 }
 .menu-icon {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 99999;
+    z-index: 9999999;
     padding: 20px;
     width: 80px;
     height: 80px;
@@ -180,7 +180,7 @@ a:hover , a:active , a:focus{
 
 
 .layer{
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -205,11 +205,11 @@ a:hover , a:active , a:focus{
 }
 
 .menu-container {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     background: rgb(33, 33, 33);
-    z-index: 9999;
+    z-index: 999999;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -239,18 +239,6 @@ a:hover , a:active , a:focus{
         flex-direction: column;
     }
 }
-
-// .menu-container.active{
-//     height: 100%;
-//     @extend .main-transition;
-// }
-
-
-
-
-
-
-
 
 .home-page-component {
     width: 110%;
@@ -282,11 +270,6 @@ a:hover , a:active , a:focus{
         font-size: 55px;
         text-transform: uppercase;
         transition: all 1s ease-in-out;
-
-        &:hover{
-            width: 800px;
-            transition: all 1s ease-in-out;
-        }
 
         &:after{
             content: "";
@@ -337,6 +320,15 @@ a:hover , a:active , a:focus{
 }
 
 
+@media all and (min-width : 1000px){
+
+    .home-page-component .one-item:hover{
+        width: 800px;
+        transition: all 1s ease-in-out;
+    }
+
+}
+
 
 
 .home-page-component .one-item.active#about {
@@ -371,7 +363,7 @@ a:hover , a:active , a:focus{
 
     .header-content{
         width: 110%;
-        height: 100vh;
+        height: calc( 100vh + 50px);
         overflow: hidden;
         background: #000;
         margin-left: -5%;
@@ -423,6 +415,17 @@ a:hover , a:active , a:focus{
     width: 100%;
     color: #FFF;
     padding: 0 0 120px 0;
+    position: relative;
+    
+    &::after {
+        content: "";
+        position: absolute;
+        top: -50px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(0deg, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 80%);
+    }
 
     .about{
         padding: 60px 0;
@@ -552,7 +555,7 @@ a:hover , a:active , a:focus{
                             z-index: 9999;
                         }
                         img{
-                            max-width: 320px;
+                            max-width: 280px;
                             z-index: 1;
                         }
 
@@ -1027,9 +1030,6 @@ a:hover , a:active , a:focus{
 
 
 
-
-
-
 // media start
 
 @media all and (max-width : 1000px ) {
@@ -1040,7 +1040,7 @@ a:hover , a:active , a:focus{
 
     .home-page-component {
         flex-direction: column;
-        margin-left: -5%;
+        margin-left: 0;
         width: 100%;
         height: auto;
         .one-item {
@@ -1050,6 +1050,8 @@ a:hover , a:active , a:focus{
             background-position: 0 0;
             position: relative;
             background-position: -200px 0px !important;
+            padding: 0;
+            margin: 0;
         }
     }
 
@@ -1059,9 +1061,36 @@ a:hover , a:active , a:focus{
             margin-left: -25%;
             .header{
                 transform: rotate(0);
+                background-position: center;
             }
         }
         .content{
+            .about .about-content {
+                flex-direction: column;
+                .data {
+                    width: 100%;
+                }
+                .image{
+                    width: 100%;
+                }
+            }
+            .carrer-content{
+                h2 {
+                    margin-bottom: 20px;
+                }
+                .steps{
+                    flex-direction: column;
+                    .one-step{
+                        width: 100%;
+                        margin-left: unset !important;
+                        margin-bottom: 30px !important;
+                        .step-content{
+                            transform: unset !important;
+                        }
+                    }
+                }
+            }
+
         
             .skills-page{
 
@@ -1116,6 +1145,15 @@ a:hover , a:active , a:focus{
                     flex-direction: column;
                 }
             }
+            .portfolio-page .one-item{
+                justify-content: center !important;
+                margin: 20px 0 !important;
+                .one-item-content img{
+                    max-width: 100%;
+                    max-height: 150px;
+                    margin: 10px;
+                }
+            }
             .page-footer .about-footer-content {
                 flex-direction: column;
                 .data{
@@ -1130,6 +1168,18 @@ a:hover , a:active , a:focus{
                         width: 100px !important;
                         top: -59px !important;
                     }
+                }
+            }
+            .contact-page {
+                flex-direction: column;
+                .my-data{
+                    width:100%;
+                    margin: 0;
+                    padding: 30px 0;
+                }
+                .forma{
+                    width:100%;
+                    padding: 30px 0;
                 }
             }
             

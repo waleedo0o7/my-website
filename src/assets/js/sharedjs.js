@@ -45,11 +45,11 @@ function cursorEffect() {
     cursor.removeClass("active");
     follower.removeClass("active");
 
-    $("a").on("mouseenter", function () {
+    $("a , .menu-icon").on("mouseenter", function () {
         cursor.addClass("active");
         follower.addClass("active");
     });
-    $("a").on("mouseleave", function () {
+    $("a, .menu-icon").on("mouseleave", function () {
         cursor.removeClass("active");
         follower.removeClass("active");
     });
