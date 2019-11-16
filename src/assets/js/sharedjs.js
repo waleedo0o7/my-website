@@ -63,7 +63,7 @@ function pageHeaderEffect() {
     var pageHeader = $(".internal-page .header");
 
     var rotateBackToZero = TweenMax.to(pageHeader, 1, {
-        // rotation: -20,
+        // rotation: -10,
         scale: 3,
         opacity: 0,
         ease: Power0.easeNone
