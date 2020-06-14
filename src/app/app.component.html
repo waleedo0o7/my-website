@@ -1,0 +1,19 @@
+<i (click)="clickMenuActive()" class="fa fa-bars menu-icon"></i>
+<div class="layer layer1"></div>
+<div class="layer layer2"></div>
+<div class="layer layer3"></div>
+
+<div class="menu-container">
+    <ul>
+        <li> <a class="menu-link" routerLink="/home" (click)="clickMenuActive()"> home page </a></li>
+        <li> <a class="menu-link" routerLink="/about" (click)="clickMenuActive()"> about </a></li>
+        <li> <a class="menu-link skills" routerLink="/skills" (click)="clickMenuActive()"> skills </a></li>
+        <li> <a class="menu-link" routerLink="/portfolio" (click)="clickMenuActive()"> portfolio </a> </li>
+        <li> <a class="menu-link" routerLink="/contact" (click)="clickMenuActive()"> contact </a> </li>
+    </ul>
+</div>
+
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+<router-outlet></router-outlet>
+<!-- Routed components go here -->
